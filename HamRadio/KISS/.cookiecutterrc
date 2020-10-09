@@ -1,0 +1,34 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:sterlingpeet/cookiecutter-fprime-component KISS
+#
+# See:
+#    https://pypi.org/project/cookiepatcher
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=KISS/.cookiecutterrc gh:sterlingpeet/cookiecutter-fprime-component
+
+default_context:
+
+    _template:                 '/Users/speet3/src/cookiecutter-fprime-component/'
+    component_dir_name:        'KISS'
+    component_explicit_common: ''
+    component_explicit_component_suffix: 'Component'
+    component_impl_suffix:     ''
+    component_kind:            'active'
+    component_multiplatform_support: 'no'
+    component_name:            'Amateur Radio KISS Packetizer'
+    component_namespace:       'HamRadio'
+    component_path:            'HamRadio'
+    component_path_to_fprime_root: '..'
+    component_short_description: 'Amateur Radio KISS format packetizer and depacketizer component for use within F Prime.'
+    component_slug:            'KISS'
+    email:                     'sterling.peet@ae.gatech.edu'
+    full_name:                 'Sterling Peet'
+    license:                   'MIT license'

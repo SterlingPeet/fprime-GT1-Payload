@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="../../Autocoders/Python/schema/default/component_schema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<component name="KISS" kind="active" namespace="HamRadio">
+    <import_port_type>Fw/Buffer/BufferSendPortAi.xml</import_port_type>
+    <comment>Amateur Radio KISS format packetizer and depacketizer component for use within F Prime.</comment>
+    <ports>
+        <port name="applicationIn" data_type="Fw::BufferSend" kind="async_input" max_number="16">
+            <comment>
+            Input data to be KISS packetized from application code.
+            </comment>
+        </port>
+        <port name="KISSOut" data_type="Fw::BufferSend" kind="output" max_number="1">
+            <comment>
+            KISS Interface output data.
+            </comment>
+        </port>
+        <port name="KISSIn" data_type="Fw::BufferSend" kind="async_input" max_number="1">
+            <comment>
+            Input KISS formatted data to be de-packetized and sent to application code.
+            </comment>
+        </port>
+        <port name="applicationOut" data_type="Fw::BufferSend" kind="output" max_number="16">
+            <comment>
+            De-packetized output data for application code.
+            </comment>
+        </port>
+    </ports>
+    <telemetry>
+        <channel id="0" name="PacketizedCount" data_type="U32">
+            <comment>
+            Number of KISS packets packetized and sent.
+            </comment>
+        </channel>
+        <channel id="1" name="DepacketizedCount" data_type="U32">
+            <comment>
+            Number of KISS packets recieved and successfully de-packetized.
+            </comment>
+        </channel>
+        <channel id="2" name="DepacketizerErrorCount" data_type="U32">
+            <comment>
+            Number of errors encountered while depacketizing KISS packets.
+            </comment>
+        </channel>
+    </telemetry>
+    <events>
+        <event id="0" name="DepacketizerErrorExceededMTU" severity="DIAGNOSTIC" format_string="De-packetizer exceeded MTU">
+            <comment>
+            Error occured because the incoming data exceeded the packet MTU without terminating the KISS packet.
+            </comment>
+        </event>
+        <event id="1" name="NoApplicationConnected" severity="DIAGNOSTIC" format_string="No application connected to requested KISS port %d">
+            <comment>
+            Kiss data was addressed to an unconnected application port.
+            </comment>
+            <args>
+                <arg name="port" type="U8">
+                    <comment>Attempted application port number.</comment>
+                </arg>
+            </args>
+        </event>
+        <event id="2" name="MalformedEscapeSequence" severity="DIAGNOSTIC" format_string="Non-transposed byte 0x%X found during excape sequence">
+            <comment>
+            Error occured because the incoming data contained a non-transposed byte during an escape sequence.
+            </comment>
+            <args>
+                <arg name="badByte" type="U8">
+                    <comment>Non-transponsed byte found in escaped byte mode.</comment>
+                </arg>
+            </args>
+        </event>
+    </events>
+</component>

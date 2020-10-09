@@ -1,0 +1,43 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:sterlingpeet/cookiecutter-fprime-deployment GT1
+#
+# See:
+#    https://pypi.org/project/cookiepatcher
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=GT1/.cookiecutterrc gh:sterlingpeet/cookiecutter-fprime-deployment
+
+default_context:
+
+    _template:                 'gh:sterlingpeet/cookiecutter-fprime-deployment'
+    arduino_log_stream:        'Serial'
+    component_dir_name:        'LedBlinker'
+    component_explicit_common: ''
+    component_explicit_component_suffix: 'Component'
+    component_impl_suffix:     ''
+    component_instance_name:   'ledblinker'
+    component_kind:            'passive'
+    component_multiplatform_support: 'no'
+    component_name:            'Led Blinker'
+    component_namespace:       'example'
+    component_path_to_fprime_root: '..'
+    component_short_description: 'Example component to support GT-1 Amateur Radio Payload deployment.'
+    component_slug:            'LedBlinker'
+    dep_short_description:     "Demonstration F Prime deployment showing the functionality of the GT-1 mission's payload."
+    deployment_dir_name:       'GT1'
+    deployment_display_name:   'GT-1 Amateur Radio Payload'
+    deployment_path:           ''
+    deployment_slug:           'GT1'
+    email:                     'sterling.peet@ae.gatech.edu'
+    full_name:                 'Sterling Peet'
+    license:                   'MIT license'
+    path_to_fprime_root:       ''
+    startup_arduino_led_flash: 'no'
+    startup_delay_msec:        '2000'
